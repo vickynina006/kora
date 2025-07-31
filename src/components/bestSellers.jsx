@@ -11,6 +11,7 @@ import {
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./button";
+import { motion, scale } from "framer-motion";
 
 export default function Bestsellers() {
   const product = useSelector((state) => state.product.product);
@@ -86,7 +87,15 @@ export default function Bestsellers() {
 export function BestsellerCard({ product, image }) {
   return (
     <div className="relative h-full w-full rounded-xl overflow-hidden ">
-      <img
+      <motion.img
+        whileHover={{ scale: 1.04 }}
+        transition={{
+          duration: 0.4,
+
+          type: "spring",
+
+          stiffness: 120,
+        }}
         src={image}
         alt={product.name}
         className="h-full w-full object-cover"
@@ -100,7 +109,7 @@ export function BestsellerCard({ product, image }) {
           icon={faCartShopping}
         />
       </button>
-      <span className="space-y-4 text-xl text-gray-50 absolute bottom-3 left-3">
+      <span className="space-y-3 text-md text-gray-50 absolute bottom-3 left-3 md:text-xl">
         <h1>{product.name}</h1>
         <Button style="bg-gray-100 text-xs text-neutral-800 px-5 py-1.5">
           View Details{" "}

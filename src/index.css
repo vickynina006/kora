@@ -1,12 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 @theme {
-    --font-family-monte: "Montserrat", sans-serif;
-    --font-family-inter: "Inter", sans-serif;
-    --breakpoint-smx: 340px;
+  --font-family-monte: "Montserrat", sans-serif;
+  --font-family-inter: "Inter", sans-serif;
+  --breakpoint-smx: 340px;
+  /* --animate-steady-slide: steady-slide 4s linear infinite;
+  @keyframes steady-slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  } */
 }
 
 body {
-    scroll-behavior: smooth;
-    font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+  font-family: "Inter", sans-serif;
 }
