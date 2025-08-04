@@ -1,4 +1,5 @@
 import Bestsellers from "../components/bestSellers";
+import Cart from "../components/cart";
 import Footer from "../components/footer";
 import HeaderHeroBg from "../components/headerHeroBg";
 import ProductSection from "../components/productSection";
@@ -12,6 +13,7 @@ export default function Home() {
       <Bestsellers />
       <Services />
       <Footer />
+      <Cart />
     </>
   );
 }

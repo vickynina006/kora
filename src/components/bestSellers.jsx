@@ -91,10 +91,8 @@ export function BestsellerCard({ product, image }) {
         whileHover={{ scale: 1.04 }}
         transition={{
           duration: 0.4,
-
           type: "spring",
-
-          stiffness: 120,
+          stiffness: 100,
         }}
         src={image}
         alt={product.name}
