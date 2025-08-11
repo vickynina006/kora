@@ -4,19 +4,20 @@ import cap3 from "../assets/cap3.jpeg";
 import perfume from "../assets/perfume.jpg";
 import bgSm from "../assets/bg-sm.jpg";
 import bs from "../assets/bs.jpg";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "../reduxSlice/cartslice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./button";
-import { motion, scale } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function Bestsellers() {
   const product = useSelector((state) => state.product.product);
   const bestsellers = product.filter((p) => p.bestseller);
-  const [potrait, top, bottom, landscape] = bestsellers;
+  const [statue1p, top, wineCap, perfumep, statue2p] = bestsellers;
   return (
     <section className="flex flex-col gap-7 items-center  p-4 lg:py-10">
       <div className="py-10 space-y-3 px-2 text-neutral-800">
@@ -28,31 +29,14 @@ export default function Bestsellers() {
           customers
         </p>
       </div>
-      {/* <div className="hidden flex-col gap-3 px-10 w-full md:flex lg:w-[85%] xl:w-[67%]">
-        <div className="flex gap-3 w-full  h-[600px]">
-          <div className="w-[50%] h-full">
-            <BestsellerCard image={statue} product={potrait} />
-          </div>
-          <div className="w-[50%] space-y-[3%]">
-            <div className="h-[49%] ">
-              <BestsellerCard image={cap3} product={top} />
-            </div>
-            <div className="h-[49%] ">
-              <BestsellerCard image={statue1} product={bottom} />
-            </div>
-          </div>
-        </div>
-        <div className="h-76 w-full">
-          <BestsellerCard image={perfume} product={landscape} />
-        </div>
-      </div> */}
+
       <div className="flex flex-col gap-3 h-auto w-full lg:w-[95%] xl:w-[85%] 2xl:w-[75%] md:h-[550px] lg:h-[720px] md:flex-row ">
         <div className="w-full space-y-3 md:h-full md:w-[45%]">
           <div className=" aspect-square w-full md:aspect-auto md:h-[65%]">
-            <BestsellerCard image={statue} product={potrait} />
+            <BestsellerCard image={statue} product={statue1p} />
           </div>
           <div className="aspect-video w-full md:aspect-auto md:h-[35%]">
-            <BestsellerCard image={perfume} product={landscape} />
+            <BestsellerCard image={perfume} product={perfumep} />
           </div>
         </div>
         <div className="w-full space-y-3 md:w-[55%]">
@@ -64,11 +48,11 @@ export default function Bestsellers() {
           </div>
           <div className="flex space-x-2 aspect-square  grid-cols-2 md:aspect-auto m md:h-[75%]">
             <div className="w-full h-full">
-              <BestsellerCard image={bgSm} product={bottom} />
+              <BestsellerCard image={bgSm} product={wineCap} />
             </div>
             <div className="gap-2 grid grid-rows-2 w-full h-full">
               <BestsellerCard image={cap3} product={top} />
-              <BestsellerCard image={statue1} product={top} />
+              <BestsellerCard image={statue1} product={statue2p} />
             </div>
           </div>
         </div>
@@ -85,6 +69,7 @@ export default function Bestsellers() {
 }
 
 export function BestsellerCard({ product, image }) {
+  const dispatch = useDispatch();
   return (
     <div className="relative h-full w-full rounded-xl overflow-hidden ">
       <motion.img
@@ -103,6 +88,7 @@ export function BestsellerCard({ product, image }) {
       </span>
       <button className="right-2 top-1  cursor-pointer outline-1 outline-gray-600/40 bg-gray-950/15 backdrop-blur-[1.5px] rounded-full absolute md:right-3 md:top-1.5 p-1 ">
         <FontAwesomeIcon
+          onClick={() => dispatch(addToCart(product))}
           className=" text-md text-gray-50 hover:text-amber-400  "
           icon={faCartShopping}
         />

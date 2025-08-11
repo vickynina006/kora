@@ -1,8 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../reduxSlice/cartslice";
 import Button from "./button";
 
 export default function ProductCard({ product }) {
+  const dispatch = useDispatch();
   return (
     <div className="relative flex flex-col rounded-2xl bg-neutral-100">
       <div className="w-full pb-3 pt-8 px-2 h-36 md:px-5 md:pt-12 md:pb-5 md:h-60">
@@ -18,7 +21,8 @@ export default function ProductCard({ product }) {
           <p>${product.price}</p>
           <button className="flex justify-end rounded-full  bg-white p-2">
             <FontAwesomeIcon
-              className=" text-md text-gray-800 cursor-pointer "
+              onClick={() => dispatch(addToCart(product))}
+              className=" text-md text-gray-800 cursor-pointer hover:text-amber-600"
               icon={faCartShopping}
             />
           </button>

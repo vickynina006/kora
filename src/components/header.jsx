@@ -6,17 +6,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 // import { useSelector } from "react-redux";
 import { toggleShowCart } from "../reduxSlice/uiSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import Cart from "./cart";
 
 export default function Header() {
-  // const showCart = useSelector((state) => state.ui.showCart);
+  const totalQty = useSelector((state) => state.cart.totalQty);
+
   const dispatch = useDispatch();
   function handleToggleCart() {
     dispatch(toggleShowCart());
   }
   return (
-    <header className="bg-gray-950/70 px-10 py-8 backdrop-blur-md flex items-center justify-between lg:px-28">
+    <header className="fixed top-0 right-0 left-0 z-20 bg-gray-950/70 px-10 py-8 backdrop-blur-md flex items-center justify-between lg:px-28">
       <h1 className="font-family-monte text-3xl font-bold text-neutral-50">
         kORA
       </h1>
@@ -39,18 +40,20 @@ export default function Header() {
         </ul>
       </nav>
       <div className="flex gap-8 items-center font-semibold font-family-inter text-neutral-50  ">
-        <button>
-          <FontAwesomeIcon
-            className="hidden text-xl cursor-pointer hover:text-gray-300 md:flex"
-            icon={faMagnifyingGlass}
-          />
-        </button>
-        <button onClick={handleToggleCart}>
+        <FontAwesomeIcon
+          className="hidden text-xl cursor-pointer hover:text-gray-300 md:flex"
+          icon={faMagnifyingGlass}
+        />
+
+        <div className="relative " onClick={handleToggleCart}>
           <FontAwesomeIcon
             className="hidden text-xl cursor-pointer hover:text-gray-300 md:flex"
             icon={faCartShopping}
           />
-        </button>
+          <span className="px-0.5 text-xs flex items-center justify-center min-w-4 min-h-4 z-10 text-neutral-50 bg-amber-600 rounded-full absolute -top-2 -right-1.5 ">
+            {totalQty > 9 ? "9+" : totalQty}
+          </span>
+        </div>
       </div>
     </header>
   );

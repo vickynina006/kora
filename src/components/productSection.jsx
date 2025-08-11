@@ -10,7 +10,10 @@ export default function ProductSection() {
   const products = product.slice(0, 6);
 
   return (
-    <section className="flex flex-col gap-14 items-center py-14 px-4 lg:px-20 ">
+    <section
+      className="flex flex-col gap-14 items-center py-14 px-4 lg:px-20 "
+      id="productSection"
+    >
       <ul className="flex flex-wrap gap-6">
         <ProductButton title="All" to="/" />
         <ProductButton title="Best Sellers" to="/bestsellers" />
