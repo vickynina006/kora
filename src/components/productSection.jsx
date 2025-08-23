@@ -2,12 +2,19 @@ import { Link, NavLink } from "react-router-dom";
 // import image from "../assets/1.jpg";
 
 import Button from "./button";
-import ProductCard from "./productCard";
-import { useSelector } from "react-redux";
+import ProductDisplay from "./productComponent";
+// import { useDispatch } from "react-redux";
+// import { useEffect } from "react";
+// import { runSearch, setCurrentCategory } from "../reduxSlice/productSlice";
+
+// import { useSelector } from "react-redux";
 
 export default function ProductSection() {
-  const product = useSelector((state) => state.product.product);
-  const products = product.slice(0, 6);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(setCurrentCategory("caps"));
+  //   dispatch(runSearch());
+  // }, [dispatch]);
 
   return (
     <section
@@ -21,15 +28,7 @@ export default function ProductSection() {
         <ProductButton title="Perfumes" to="/perfumes" />
         <ProductButton title="Interiors" to="/interiors" />
       </ul>
-      <div className="grid grid-cols-1 smx:grid-cols-2 gap-y-10 gap-x-3 w-full md:grid-cols-3 lg:gap-x-7 lg:w-[90%] xl:w-[72%]">
-        {products.map((p) => (
-          <ProductCard
-            key={p.id}
-            // name={p.name} img={p.image} price={p.price}
-            product={p}
-          />
-        ))}
-      </div>
+      <ProductDisplay limit={6} />
       <Button>See More Collection</Button>
     </section>
   );
