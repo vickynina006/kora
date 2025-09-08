@@ -7,8 +7,7 @@ import {
   increaseQty,
   reduceQty,
 } from "../reduxSlice/cartslice";
-import Button from "./button";
-import { Link } from "react-router-dom";
+import Button from "./Button";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons/faTrashCan";
 
 export default function Cart() {

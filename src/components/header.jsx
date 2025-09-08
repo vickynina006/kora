@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
   faMagnifyingGlass,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 // import { useSelector } from "react-redux";
 import { toggleShowCart } from "../reduxSlice/uiSlice";
@@ -11,7 +12,7 @@ import { setSearchTerm, runSearch } from "../reduxSlice/productSlice";
 import { useState } from "react";
 // import Cart from "./cart";
 
-export default function Header() {
+export default function Header({ scrollToProducts }) {
   const [openSearch, setOpenSearch] = useState(false);
 
   const totalQty = useSelector((state) => state.cart.totalQty);
@@ -24,7 +25,10 @@ export default function Header() {
       dispatch(runSearch());
     }
   }
-
+  function handleSearchClick() {
+    dispatch(runSearch());
+    scrollToProducts?.();
+  }
   function handleToggleCart() {
     dispatch(toggleShowCart());
   }
@@ -52,11 +56,11 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className="flex gap-8 items-center font-semibold font-family-inter text-neutral-50  ">
+        <div className="flex gap-4 items-center font-semibold font-family-inter text-neutral-50 lg:gap-7 ">
           <FontAwesomeIcon
             onClick={() => setOpenSearch(!openSearch)}
             className="hidden text-xl cursor-pointer hover:text-gray-300 md:flex"
-            icon={faMagnifyingGlass}
+            icon={openSearch ? faTimes : faMagnifyingGlass}
           />
 
           <div className="relative " onClick={handleToggleCart}>
@@ -70,27 +74,32 @@ export default function Header() {
           </div>
         </div>
       </header>
-      <div className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5">
-        <div className="w-full relative">
-          {" "}
-          <input
-            onChange={handleChange}
-            onKeyDown={(e) => e.key === "Enter" && dispatch(runSearch())}
-            type="text"
-            placeholder="Search products..."
-            className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
-          />
-          <button
-            onClick={() => dispatch(runSearch())}
-            className=" absolute right-2 top-1.5 flex items-center justify-center bg-gray-900 text-white rounded-full p-1.5 md:p-2 "
-          >
-            <FontAwesomeIcon
-              className="text-sm cursor-pointer hover:text-gray-300 md:text-xl"
-              icon={faMagnifyingGlass}
+      {openSearch && (
+        <div className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5">
+          <div className="w-full relative">
+            {" "}
+            <input
+              onChange={handleChange}
+              onKeyDown={(e) =>
+                e.key === "Enter" &&
+                (dispatch(runSearch()), scrollToProducts?.())
+              }
+              type="text"
+              placeholder="Search products..."
+              className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
             />
-          </button>
+            <button
+              onClick={handleSearchClick}
+              className=" absolute right-2 top-1.5 flex items-center justify-center bg-gray-900 text-white rounded-full p-1.5 md:p-2 "
+            >
+              <FontAwesomeIcon
+                className="text-sm cursor-pointer hover:text-gray-300 md:text-xl"
+                icon={faMagnifyingGlass}
+              />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

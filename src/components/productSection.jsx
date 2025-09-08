@@ -1,15 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
+
 // import image from "../assets/1.jpg";
 
 import Button from "./button";
 import ProductDisplay from "./productComponent";
-// import { useDispatch } from "react-redux";
-// import { useEffect } from "react";
-// import { runSearch, setCurrentCategory } from "../reduxSlice/productSlice";
 
-// import { useSelector } from "react-redux";
-
-export default function ProductSection() {
+export default function ProductSection({ productRef }) {
   // const dispatch = useDispatch();
   // useEffect(() => {
   //   dispatch(setCurrentCategory("caps"));
@@ -18,15 +14,16 @@ export default function ProductSection() {
 
   return (
     <section
-      className="flex flex-col gap-14 items-center py-14 px-4 lg:px-20 "
+      ref={productRef}
+      className="flex flex-col gap-14 items-center py-14 px-4  "
       id="productSection"
     >
       <ul className="flex flex-wrap gap-6">
-        <ProductButton title="All" to="/" />
-        <ProductButton title="Best Sellers" to="/bestsellers" />
-        <ProductButton title="Caps" to="/caps" />
-        <ProductButton title="Perfumes" to="/perfumes" />
-        <ProductButton title="Interiors" to="/interiors" />
+        <ProductButton title="All" to="/" bg="bg-gray-800 text-white" />
+        <ProductButton title="Best Sellers" to="/#bestsellers" />
+        <ProductButton title="Caps" to="/caps" bg="" />
+        <ProductButton title="Perfumes" to="/perfumes" bg="" />
+        <ProductButton title="Interiors" to="/interiors" bg="" />
       </ul>
       <ProductDisplay limit={6} />
       <Button>See More Collection</Button>
@@ -34,19 +31,15 @@ export default function ProductSection() {
   );
 }
 
-export function ProductButton({ to, title }) {
+export function ProductButton({ to, title, bg }) {
   return (
     <li>
-      <NavLink
-        className={({ isActive }) =>
-          `py-2 px-6 text-gray-800 outline-1 outline-gray-800 rounded-full hover:bg-gray-800 hover:text-white ${
-            isActive ? "bg-gray-800 text-white" : ""
-          }`
-        }
+      <Link
+        className={`py-2 px-6 text-gray-800 outline-1  outline-gray-800 rounded-full ${bg} hover:bg-gray-800 hover:text-white `}
         to={to}
       >
         {title}
-      </NavLink>
+      </Link>
     </li>
   );
 }

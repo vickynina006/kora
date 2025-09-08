@@ -13,13 +13,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function Bestsellers() {
   const product = useSelector((state) => state.product.product);
   const bestsellers = product.filter((p) => p.bestseller);
   const [statue1p, top, wineCap, perfumep, statue2p] = bestsellers;
   return (
-    <section className="flex flex-col gap-7 items-center  p-4 lg:py-10">
+    <section
+      id="bestsellers"
+      className="flex flex-col gap-7 items-center  p-4 lg:py-10"
+    >
       <div className="py-10 space-y-3 px-2 text-neutral-800">
         <h1 className="text-center text-4xl  text-neutral-700 font-bold ">
           Our Best sellers
@@ -32,10 +36,16 @@ export default function Bestsellers() {
 
       <div className="flex flex-col gap-3 h-auto w-full lg:w-[95%] xl:w-[85%] 2xl:w-[75%] md:h-[550px] lg:h-[720px] md:flex-row ">
         <div className="w-full space-y-3 md:h-full md:w-[45%]">
-          <div className=" aspect-square w-full md:aspect-auto md:h-[65%]">
+          <motion.div
+            initial={{ rotateY: 90, opacity: 0 }}
+            whileInView={{ rotateY: 0, opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            viewport={{ amount: 1, once: true }}
+            className=" aspect-square w-full md:aspect-auto md:h-[65%]"
+          >
             <BestsellerCard image={statue} product={statue1p} />
-          </div>
-          <div className="aspect-video w-full md:aspect-auto md:h-[35%]">
+          </motion.div>
+          <div className="spect-video w-full md:aspect-auto md:h-[35%]">
             <BestsellerCard image={perfume} product={perfumep} />
           </div>
         </div>
@@ -47,12 +57,32 @@ export default function Bestsellers() {
             </span>
           </div>
           <div className="flex space-x-2 aspect-square  grid-cols-2 md:aspect-auto m md:h-[75%]">
-            <div className="w-full h-full">
+            <motion.div
+              initial={{ rotateY: 90, opacity: 0 }}
+              whileInView={{ rotateY: 0, opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeIn" }}
+              viewport={{ amount: 0.2, once: true }}
+              className="w-full h-full"
+            >
               <BestsellerCard image={bgSm} product={wineCap} />
-            </div>
-            <div className="gap-2 grid grid-rows-2 w-full h-full">
-              <BestsellerCard image={cap3} product={top} />
-              <BestsellerCard image={statue1} product={statue2p} />
+            </motion.div>
+            <div className="gap-2 grid grid-rows-2 w-full h-full overflow-hidden">
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.5 }}
+                viewport={{ amount: 0.4, once: true }}
+              >
+                <BestsellerCard image={cap3} product={top} />
+              </motion.div>
+              <motion.div
+                initial={{ x: 50, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1.3, delay: 0.3 }}
+                viewport={{ amount: 0.4, once: true }}
+              >
+                <BestsellerCard image={statue1} product={statue2p} />
+              </motion.div>
             </div>
           </div>
         </div>
@@ -82,6 +112,9 @@ export function BestsellerCard({ product, image }) {
         src={image}
         alt={product.name}
         className="h-full w-full object-cover"
+        style={{
+          perspective: "1000px",
+        }}
       />
       <span className="absolute left-2 top-2 px-3 py-0.5 text-xs outline-1 outline-gray-600/40 text-gray-50 rounded-full bg-gray-950/15 backdrop-blur-[1.5px] md:left-3 md :top-3">
         ${product.price}
@@ -95,15 +128,16 @@ export function BestsellerCard({ product, image }) {
       </button>
       <span className="space-y-3 text-md text-gray-50 absolute bottom-3 left-3 md:text-xl">
         <h1>{product.name}</h1>
-        <Button style="bg-gray-100 text-xs text-neutral-800 px-5 py-1.5">
-          View Details{" "}
-          <FontAwesomeIcon
-            className="transform -rotate-45  text-md text-neutral-600 ml-1 hover:text-amber-400  "
-            icon={faArrowRight}
-          />
-        </Button>
+        <Link to={`/products/${product.id}`}>
+          <Button style="bg-gray-100 text-xs text-neutral-800 px-5 py-1.5 cursor-pointer hover:bg-amber-500 hover:text-white ">
+            View Details{" "}
+            <FontAwesomeIcon
+              className="transform -rotate-45  text-md text-neutral-600 ml-1 hover:text-white  "
+              icon={faArrowRight}
+            />
+          </Button>
+        </Link>
       </span>
     </div>
   );
-  s;
 }

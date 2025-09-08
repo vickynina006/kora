@@ -2,8 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../reduxSlice/cartslice";
-import Button from "./button";
+// import Button from "./button";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { tr } from "framer-motion/client";
 
 export default function ProductDisplay({ limit }) {
   const product = useSelector((state) => state.product.filteredProducts);
@@ -19,7 +22,7 @@ export default function ProductDisplay({ limit }) {
         </div>
       )}
 
-      <div className="grid grid-cols-1 smx:grid-cols-2 gap-y-10 gap-x-3 w-full md:grid-cols-3 lg:gap-x-7 lg:w-[90%] xl:w-[72%]">
+      <div className="grid grid-cols-1 smx:grid-cols-2 gap-y-10 gap-x-3 w-full md:grid-cols-3 lg:gap-x-8 lg:w-[95%] xl:w-[72%]">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
@@ -28,12 +31,16 @@ export default function ProductDisplay({ limit }) {
   );
 }
 
-export function ProductCard({ product }) {
+export function ProductCard({ product, style }) {
   const dispatch = useDispatch();
   return (
-    <div
+    <motion.div
+      initial={{ y: 80, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      viewport={{ once: "true", amount: 0.2 }}
+      transition={{ duration: 0.7, ease: "easeInOut" }}
       tabIndex={0}
-      className="relative group flex flex-col rounded-2xl bg-neutral-100"
+      className={`relative group flex flex-col flex-shrink-0 rounded-2xl bg-[#e2dcd1] ${style}`}
     >
       <div className="w-full pb-3 pt-8 px-2 h-36 md:px-5 md:pt-12 md:pb-5 md:h-60">
         <img
@@ -49,22 +56,25 @@ export function ProductCard({ product }) {
           <button className="flex justify-end rounded-full  bg-white p-2">
             <FontAwesomeIcon
               onClick={() => dispatch(addToCart(product))}
-              className=" text-md text-gray-800 cursor-pointer hover:text-amber-600"
+              className="z-10 text-md text-gray-800 cursor-pointer hover:text-amber-600"
               icon={faCartShopping}
             />
           </button>
         </div>
       </div>
       <div className="absolute top-0 left-0 flex items-center rounded-2xl justify-center w-full h-full bg-black/10 opacity-0 group-hover:opacity-100 focus:opacity-100 active:opacity-100 transition-all duration-300">
-        <Button style="translate-y-full text-white text-sm bg-gray-800 px-5 py-1.5 transition-all duration-300 group-hover:translate-y-0 focus:translate-y-0 active:translate-y-0">
+        <Link
+          to={`products/${product.id}`}
+          className="translate-y-full rounded-full text-white text-sm bg-gray-800 px-5 py-1.5 transition-all duration-300 group-hover:translate-y-0 focus:translate-y-0 active:translate-y-0"
+        >
           View Details
-        </Button>
+        </Link>
       </div>
       {product.bestseller && (
         <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-white md:py-1 md:px-3 md:top-3 md:left-3">
           <h1 className="text-sm md:text-md">Top Seller</h1>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
