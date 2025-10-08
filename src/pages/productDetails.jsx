@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "../components/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { addToCart } from "../reduxSlice/cartslice";
@@ -47,9 +47,9 @@ export default function ProductDetails() {
     setProgress(scrollProgress);
   }
   useEffect(() => {
-    window.scrollTo(0, 0, { behavior: "smooth" });
-  }, []);
-  //
+    window.scrollTo(0, 0);
+  }, [id]);
+
   return (
     <div className="pt-24">
       <main className="w-full p-4 smx:p-7 flex flex-col md:flex-row gap-10 md:p-20 lg:px-40">
@@ -158,10 +158,12 @@ export default function ProductDetails() {
             ))}
           </div>
         </div>
-        <div className="h-2 bg-gray-200 rounded-full mx-auto w-full">
+        <div className="h-2 bg-gray-200 rounded-full mx-auto w-1/2 overflow-hidden">
           <div
-            className="h-full bg-gray-800 w-12 rounded-full transition-transform duration-100 "
-            style={{ transform: `translateX(${progress}%)` }}
+            className="h-full bg-gray-800 w-[10%] rounded-full transition-transform duration-100 "
+            style={{
+              transform: `translateX(${progress * 9}% )`, //(100%(parentwidth)-10%(childwith))/childwidth=9
+            }}
           />
         </div>
       </section>

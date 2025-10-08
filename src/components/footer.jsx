@@ -13,7 +13,10 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col w-full px-10 py-20 gap-10 bg-gray-800 text-gray-100 lg:px-20 md:flex-row">
+    <footer
+      id="footer"
+      className="flex flex-col w-full px-10 py-20 gap-10 bg-gray-800 text-gray-100 lg:px-20 md:flex-row"
+    >
       <div className="flex flex-col gap-10 w-full md:w-[55%] md:flex-row">
         <div className="w-full space-y-5 md:w-[60%]">
           <h1 className="text-3xl font-family-monte font-bold md:text-4xl">

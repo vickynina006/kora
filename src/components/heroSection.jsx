@@ -14,10 +14,10 @@ export default function Hero({
     <section
       className={`bg-black/35 bg-blend-overlay  ${bgImage} bg-cover bg-no-repeat bg-center`}
     >
-      <div className=" flex flex-col items-center gap-10 w-full  px-6 pt-52 pb-20 text-white md:px-14  lg:items-start md:pt-60 lg:w-[70%] lg:px-28">
+      <div className=" flex flex-col items-center gap-10 w-full  px-6 pt-52 pb-24 overflow-hidden text-white md:px-14  lg:items-start md:pt-60 lg:w-[70%] lg:px-28">
         <div className="overflow-hidden">
           <motion.h1
-            initial={{ y: 120 }}
+            initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{
               duration: 1,
@@ -30,7 +30,7 @@ export default function Hero({
         </div>
         <div className="overflow-hidden">
           <motion.p
-            initial={{ y: 150 }}
+            initial={{ y: "100%" }}
             animate={{ y: 0 }}
             transition={{
               duration: 1,
@@ -44,37 +44,16 @@ export default function Hero({
         </div>
 
         {button && (
-          <div className="flex flex-col gap-5 items-center lg:items-start">
+          <div className="relative flex flex-col gap-5 items-center lg:items-start">
             <motion.button
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 200, damping: 8 }}
               onClick={() => setShowDetails((prev) => !prev)}
-              className="rounded-full px-8 py-2.5 cursor-pointer bg-amber-600/65 backdrop-blur-xs  hover:bg-amber-700/80"
+              className="rounded-full px-8 py-2.5 cursor-pointer bg-amber-600/65 backdrop-blur-xs  hover:bg-amber-700/80 "
             >
               Shop now
             </motion.button>
-            {showDetails && (
-              <AnimatePresence>
-                {" "}
-                <motion.ul
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.3, ease: easeInOut }}
-                  className="bg-white/10 backdrop-blur-sm rounded-md p-4 text-sm flex gap-6 text-neutral-200"
-                >
-                  <li className=" outline-1 outline-white/15  rounded-full px-3 py-1 hover:text-neutral-300">
-                    <Link to="/caps">Caps</Link>
-                  </li>
-                  <li className=" outline-1 outline-white/15  rounded-full px-3 py-1 hover:text-neutral-300">
-                    <Link to="/interiors">Interiors</Link>
-                  </li>
-                  <li className=" outline-1 outline-white/15  rounded-full px-3 py-1 hover:text-neutral-300">
-                    <Link to="/perfumes">Perfumes</Link>
-                  </li>
-                </motion.ul>
-              </AnimatePresence>
-            )}
+            <AnimatePresence> {showDetails && <Details />}</AnimatePresence>
           </div>
         )}
         {offer && (
@@ -84,5 +63,28 @@ export default function Hero({
         )}
       </div>
     </section>
+  );
+}
+
+export function Details({ style = "mt-14 bg-white/10", ...props }) {
+  return (
+    <motion.ul
+      {...props}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -20, opacity: 0 }}
+      transition={{ duration: 0.3, ease: easeInOut }}
+      className={`absolute  ${style} backdrop-blur-sm rounded-md p-3 text-sm flex  gap-1 text-neutral-200 smx:gap-5`}
+    >
+      <li className=" outline-1 outline-white/15  rounded-full px-2 py-1 hover:text-neutral-300">
+        <Link to="/caps">Caps</Link>
+      </li>
+      <li className=" outline-1 outline-white/15  rounded-full px-2 py-1 hover:text-neutral-300">
+        <Link to="/interiors">Interiors</Link>
+      </li>
+      <li className=" outline-1 outline-white/15  rounded-full px-2 py-1 hover:text-neutral-300">
+        <Link to="/perfumes">Perfumes</Link>
+      </li>
+    </motion.ul>
   );
 }

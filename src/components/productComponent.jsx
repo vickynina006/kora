@@ -35,10 +35,10 @@ export function ProductCard({ product, style }) {
   const dispatch = useDispatch();
   return (
     <motion.div
-      initial={{ y: 80, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
+      initial={{ y: 80, scale: 0.7, opacity: 0 }}
+      whileInView={{ y: 0, scale: 1, opacity: 1 }}
       viewport={{ once: "true", amount: 0.2 }}
-      transition={{ duration: 0.7, ease: "easeInOut" }}
+      transition={{ duration: 1, ease: "easeInOut" }}
       tabIndex={0}
       className={`relative group flex flex-col flex-shrink-0 rounded-2xl bg-[#e2dcd1] ${style}`}
     >
@@ -64,7 +64,7 @@ export function ProductCard({ product, style }) {
       </div>
       <div className="absolute top-0 left-0 flex items-center rounded-2xl justify-center w-full h-full bg-black/10 opacity-0 group-hover:opacity-100 focus:opacity-100 active:opacity-100 transition-all duration-300">
         <Link
-          to={`products/${product.id}`}
+          to={`/products/${product.id}`}
           className="translate-y-full rounded-full text-white text-sm bg-gray-800 px-5 py-1.5 transition-all duration-300 group-hover:translate-y-0 focus:translate-y-0 active:translate-y-0"
         >
           View Details

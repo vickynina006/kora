@@ -68,17 +68,17 @@ export default function Bestsellers() {
             </motion.div>
             <div className="gap-2 grid grid-rows-2 w-full h-full overflow-hidden">
               <motion.div
-                initial={{ x: 50, opacity: 0 }}
+                initial={{ x: "20%", opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.5 }}
+                transition={{ duration: 1 }}
                 viewport={{ amount: 0.4, once: true }}
               >
                 <BestsellerCard image={cap3} product={top} />
               </motion.div>
               <motion.div
-                initial={{ x: 50, opacity: 0 }}
+                initial={{ x: "20%", opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1.3, delay: 0.3 }}
+                transition={{ duration: 1, delay: 0.3 }}
                 viewport={{ amount: 0.4, once: true }}
               >
                 <BestsellerCard image={statue1} product={statue2p} />
