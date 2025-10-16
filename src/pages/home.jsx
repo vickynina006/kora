@@ -10,9 +10,8 @@ export default function Home() {
   return (
     <>
       <Hero
-        title="Where Scent, Style, and Space Meet Elegance"
-        description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis eos
-          aut omnis consequuntur! Tempora vitae dolores nobis ipsum nemo"
+        title="Where Scent, Style, and Space Meet Elegance."
+        description="Redefining elegance through the fusion of scent and design. Crafted to elevate your space and style, with a touch of timeless luxury."
         button={true}
       />
       <ProductSection productRef={productRef} />
