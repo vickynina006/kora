@@ -17,7 +17,7 @@ import jar from "../assets/jar.png";
 import armyCap from "../assets/armyCap.png";
 import spiceoudPef from "../assets/spiceoudPef.png";
 import marbleTable from "../assets/marbleTable.png";
-import vanillaPef from "../assets/vanillaPef.png";
+import vanillaPef from "../assets/vanillapef.png";
 import lavendaPef from "../assets/lavendaPef.png";
 import sandalwoodPef from "../assets/sandalwoodPef.png";
 import brownCap from "../assets/brownCap.png";
