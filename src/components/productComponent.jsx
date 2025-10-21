@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../reduxSlice/cartslice";
+import { addToCart } from "../reduxSlice/cartSlice";
 // import Button from "./button";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";

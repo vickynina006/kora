@@ -5,7 +5,7 @@ import perfume from "../assets/perfume.jpg";
 import bgSm from "../assets/bg-sm.jpg";
 import bs from "../assets/bs.jpg";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../reduxSlice/cartslice";
+import { addToCart } from "../reduxSlice/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRight,

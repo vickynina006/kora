@@ -1,19 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Details } from "./heroSection";
-
-// import image from "../assets/1.jpg";
 
 import Button from "./button";
 import ProductDisplay from "./productComponent";
 import { AnimatePresence } from "framer-motion";
 
 export default function ProductSection({ productRef }) {
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(setCurrentCategory("caps"));
-  //   dispatch(runSearch());
-  // }, [dispatch]);
   const [showDetails, setShowDetails] = useState(false);
   return (
     <section

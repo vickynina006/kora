@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import Button from "../components/button";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { addToCart } from "../reduxSlice/cartslice";
+import { addToCart } from "../reduxSlice/cartSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,

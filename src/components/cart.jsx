@@ -6,7 +6,7 @@ import {
   removeFromCart,
   increaseQty,
   reduceQty,
-} from "../reduxSlice/cartslice";
+} from "../reduxSlice/cartSlice";
 import Button from "./button";
 import { faTrashCan } from "@fortawesome/free-regular-svg-icons/faTrashCan";
 import { AnimatePresence, motion } from "framer-motion";
