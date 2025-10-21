@@ -1,12 +1,20 @@
 import { useOutletContext } from "react-router-dom";
 import Bestsellers from "../components/bestSellers";
-
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { setCurrentCategory, runSearch } from "../reduxSlice/productSlice";
 import Hero from "../components/heroSection";
 import ProductSection from "../components/productSection";
 import Services from "../components/services";
 
 export default function Home() {
   const { productRef } = useOutletContext();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setCurrentCategory("all"));
+    dispatch(runSearch());
+  }, [dispatch]);
   return (
     <>
       <Hero

@@ -35,7 +35,7 @@ export default function Cart() {
 
   useEffect(() => {
     if (showAlert) {
-      const timer = setTimeout(() => setShowAlert(false), 3000); // auto close after 2.5s
+      const timer = setTimeout(() => setShowAlert(false), 3500); // auto close after 2.5s
       return () => clearTimeout(timer);
     }
   }, [showAlert]);
@@ -152,7 +152,8 @@ export default function Cart() {
                     </h1>
                     <p className="text-white ">
                       Server error. We are experiencing technical difficulties.
-                      please try again later.
+                      please try again later or you can place your orders via
+                      our socials.
                     </p>
                   </div>
                 </motion.div>

@@ -1,14 +1,37 @@
-import image from "../assets/cap2-removebg.png";
-import image2 from "../assets/1-removebg.png";
-import image3 from "../assets/statue1-removebg.png";
-import { m } from "framer-motion";
+import pinkCap from "../assets/pinkCap.png";
+import abstract from "../assets/abstract.png";
+import blackCap from "../assets/blackCap.png";
+import standingLight from "../assets/standingLight.png";
+import denimCap from "../assets/denimCap.png";
+import redCap from "../assets/redCap.png";
+import oceanPef from "../assets/oceanPef.png";
+import citrusPef from "../assets/citrusPef.png";
+import nightoudPef from "../assets/nightoudPef.png";
+import bleuPerfume from "../assets/bleuPerfume.png";
+import woodenClock from "../assets/woodenClock.png";
+import wineCap from "../assets/wineCap.png";
+import pillow from "../assets/pillow.png";
+import blackleatherCap from "../assets/blackleatherCap.png";
+import rosePef from "../assets/rosePef.png";
+import jar from "../assets/jar.png";
+import armyCap from "../assets/armyCap.png";
+import spiceoudPef from "../assets/spiceoudPef.png";
+import marbleTable from "../assets/marbleTable.png";
+import vanillaPef from "../assets/vanillaPef.png";
+import lavendaPef from "../assets/lavendaPef.png";
+import sandalwoodPef from "../assets/sandalwoodPef.png";
+import brownCap from "../assets/brownCap.png";
+import curvedStandingLight from "../assets/curvedStandingLight.png";
+import yellowCap from "../assets/yellowCap.png";
+import wallMirror from "../assets/wallMirror.png";
+import centreRug from "../assets/centreRug.png";
 
 const products = [
   {
     id: "1",
     name: "Floor Lamp Led Sculpture",
     measurement: "Height: 5ft, Base Diameter: 10in",
-    image: image2,
+    image: standingLight,
     price: 15,
     category: "interiors",
     bestseller: true,
@@ -17,62 +40,65 @@ const products = [
   },
   {
     id: "2",
-    name: "White Sports Cap",
-    measurement: "One size fits all (adjustable)",
-    image: image3,
-    price: 12,
-    category: "caps",
-    bestseller: false,
-    description:
-      "A breathable white cotton sports cap with a comfortable adjustable strap. Lightweight and stylish, it protects from sunlight while adding a sporty look to your outfit.",
-  },
-  {
-    id: "3",
-    name: "Blue Denim Cap",
-    measurement: "One size fits all (adjustable)",
-    image: image,
-    price: 18,
-    category: "caps",
-    bestseller: false,
-    description:
-      "Trendy denim cap crafted from durable blue jean fabric. Perfect for casual outings, it offers both comfort and durability with a fashionable touch.",
-  },
-  {
-    id: "4",
-    name: "Red Street Cap",
-    image: image,
-    price: 14,
-    category: "caps",
-    bestseller: false,
-    description:
-      "A bold red street cap built for everyday fashion. Made with quality cotton fabric and reinforced seams, it combines style with long-lasting wear.",
-  },
-  {
-    id: "5",
-    name: "Black Leather Cap",
-    image: image3,
-    price: 45,
-    category: "caps",
-    bestseller: true,
-    description:
-      "A premium black leather cap with a sleek finish. Its bold style makes it a bestseller, perfect for both casual wear and standout street fashion.",
-  },
-  {
-    id: "6",
     name: "Ocean Breeze Perfume",
     measurement: "quantity: 100ml",
-    image: image2,
+    image: oceanPef,
     price: 50,
     category: "perfumes",
     bestseller: false,
     description:
       "An invigorating aquatic fragrance with notes of sea salt and citrus. Long-lasting and refreshing, it’s ideal for daily wear in warm seasons.",
   },
+
+  {
+    id: "3",
+    name: "Black Leather Cap",
+    image: blackleatherCap,
+    price: 45,
+    category: "caps",
+    bestseller: true,
+    description:
+      "A premium black leather cap with a sleek finish. Its bold style makes it a bestseller, perfect for both casual wear and standout street fashion.",
+  },
+
+  {
+    id: "4",
+    name: "Wine Denim Cap",
+    measurement: "One size fits all (adjustable)",
+    image: wineCap,
+    price: 55,
+    category: "caps",
+    bestseller: true,
+    description:
+      "A unique wine-colored denim cap combining casual charm with premium stitching. A bestseller known for its durability and standout style.",
+  },
+  {
+    id: "5",
+    name: "Luxury Area Rug",
+    measurement: "5ft x 7ft",
+    image: centreRug,
+    price: 80,
+    category: "interiors",
+    bestseller: false,
+    description:
+      "A plush abstract-pattern rug made of soft, durable fibers. Adds comfort and a chic look to your living space.",
+  },
+  {
+    id: "6",
+    name: "Bleu De Chanel",
+    measurement: "quantity: 100ml",
+    image: bleuPerfume,
+    price: 25,
+    category: "perfumes",
+    bestseller: true,
+    description:
+      "A luxury fragrance that blends fresh citrus with woody accords. Sophisticated and versatile, it’s a timeless bestseller for any occasion.",
+  },
   {
     id: "7",
     name: "Citrus Fresh Perfume",
     measurement: "quantity: 100ml",
-    image: image2,
+    image: citrusPef,
     price: 40,
     category: "perfumes",
     bestseller: false,
@@ -82,7 +108,7 @@ const products = [
   {
     id: "8",
     name: "Night Oud Perfume",
-    image: image,
+    image: nightoudPef,
     price: 60,
     category: "perfumes",
     bestseller: false,
@@ -93,7 +119,7 @@ const products = [
     id: "9",
     name: "Wooden Wall Clock",
     measurement: "Diameter: 12in, Depth: 2in",
-    image: image,
+    image: woodenClock,
     price: 35,
     category: "interiors",
     bestseller: false,
@@ -102,20 +128,20 @@ const products = [
   },
   {
     id: "10",
-    name: "Wine Denim Cap",
-    measurement: "One size fits all (adjustable)",
-    image: image2,
-    price: 55,
-    category: "caps",
+    name: "Home Decor Abstract",
+    measurement: "12in x 12in",
+    image: abstract,
+    price: 15,
+    category: "interiors",
     bestseller: true,
     description:
-      "A unique wine-colored denim cap combining casual charm with premium stitching. A bestseller known for its durability and standout style.",
+      "Abstract decorative piece designed to uplift any room. Lightweight and durable, it’s easy to display and perfect for modern homes.",
   },
   {
     id: "11",
     name: "Grey Throw Pillow",
     measurement: "18in x 18in",
-    image: image,
+    image: pillow,
     price: 20,
     category: "interiors",
     bestseller: false,
@@ -124,31 +150,30 @@ const products = [
   },
   {
     id: "12",
-    name: "Bleu De Chanel",
-    measurement: "quantity: 100ml",
-    image: image3,
-    price: 25,
-    category: "perfumes",
-    bestseller: true,
+    name: "Red Street Cap",
+    image: redCap,
+    price: 14,
+    category: "caps",
+    bestseller: false,
     description:
-      "A luxury fragrance that blends fresh citrus with woody accords. Sophisticated and versatile, it’s a timeless bestseller for any occasion.",
+      "A bold red street cap built for everyday fashion. Made with quality cotton fabric and reinforced seams, it combines style with long-lasting wear.",
   },
   {
     id: "13",
-    name: "Home Decor Abstract",
-    measurement: "12in x 12in",
-    image: image2,
-    price: 15,
-    category: "interiors",
-    bestseller: true,
+    name: "Blue Denim Cap",
+    measurement: "One size fits all (adjustable)",
+    image: denimCap,
+    price: 18,
+    category: "caps",
+    bestseller: false,
     description:
-      "Abstract decorative piece designed to uplift any room. Lightweight and durable, it’s easy to display and perfect for modern homes.",
+      "Trendy denim cap crafted from durable blue jean fabric. Perfect for casual outings, it offers both comfort and durability with a fashionable touch.",
   },
   {
     id: "14",
     name: "Classic Black Cap",
     measurement: "One size fits all (adjustable)",
-    image: image3,
+    image: blackCap,
     price: 20,
     category: "caps",
     bestseller: false,
@@ -159,7 +184,7 @@ const products = [
     id: "15",
     name: "Rose Essence Perfume",
     measurement: "quantity: 100ml",
-    image: image2,
+    image: rosePef,
     price: 55,
     category: "perfumes",
     bestseller: false,
@@ -170,7 +195,7 @@ const products = [
     id: "16",
     name: "Ceramic Vase Set",
     measurement: "Height: 5ft, Base Diameter: 10in",
-    image: image3,
+    image: jar,
     price: 30,
     category: "interiors",
     bestseller: false,
@@ -181,7 +206,7 @@ const products = [
     id: "17",
     name: "Camo Military Cap",
     measurement: "One size fits all (adjustable)",
-    image: image,
+    image: armyCap,
     price: 22,
     category: "caps",
     bestseller: false,
@@ -192,7 +217,7 @@ const products = [
     id: "18",
     name: "Spice Oud Perfume",
     measurement: "quantity: 100ml",
-    image: image3,
+    image: spiceoudPef,
     price: 70,
     category: "perfumes",
     bestseller: false,
@@ -203,7 +228,7 @@ const products = [
     id: "19",
     name: "Marble Coffee Table",
     measurement: "Length: 48in, Width: 24in, Height: 18in",
-    image: image,
+    image: marbleTable,
     price: 120,
     category: "interiors",
     bestseller: false,
@@ -214,7 +239,7 @@ const products = [
     id: "20",
     name: "Mesh Back Trucker Cap",
     measurement: "One size fits all (adjustable)",
-    image: image2,
+    image: brownCap,
     price: 16,
     category: "caps",
     bestseller: false,
@@ -225,7 +250,7 @@ const products = [
     id: "21",
     name: "Vanilla Musk Perfume",
     measurement: "quantity: 100ml",
-    image: image,
+    image: vanillaPef,
     price: 48,
     category: "perfumes",
     bestseller: false,
@@ -236,7 +261,7 @@ const products = [
     id: "22",
     name: "Wall Hanging Mirror",
     measurement: "Diameter: 24in",
-    image: image2,
+    image: wallMirror,
     price: 45,
     category: "interiors",
     bestseller: false,
@@ -247,7 +272,7 @@ const products = [
     id: "23",
     name: "Yellow Summer Cap",
     measurement: "One size fits all (adjustable)",
-    image: image3,
+    image: yellowCap,
     price: 15,
     category: "caps",
     bestseller: false,
@@ -256,9 +281,9 @@ const products = [
   },
   {
     id: "24",
-    name: "Cedarwood Classic Perfume",
+    name: "Sandalwood Classic Perfume",
     measurement: "quantity: 100ml",
-    image: image2,
+    image: sandalwoodPef,
     price: 65,
     category: "perfumes",
     bestseller: false,
@@ -267,31 +292,31 @@ const products = [
   },
   {
     id: "25",
-    name: "Luxury Area Rug",
-    measurement: "5ft x 7ft",
-    image: image3,
-    price: 80,
-    category: "interiors",
+    name: "Pink Sports Cap",
+    measurement: "One size fits all (adjustable)",
+    image: pinkCap,
+    price: 12,
+    category: "caps",
     bestseller: false,
     description:
-      "A plush abstract-pattern rug made of soft, durable fibers. Adds comfort and a chic look to your living space.",
+      "A breathable white cotton sports cap with a comfortable adjustable strap. Lightweight and stylish, it protects from sunlight while adding a sporty look to your outfit.",
   },
   {
     id: "26",
-    name: "Glass Candle Holder Set",
+    name: "Curved Standing Light ",
     measurement: "Height: 4in, Diameter: 3in",
-    image: image,
+    image: curvedStandingLight,
     price: 25,
     category: "interiors",
     bestseller: false,
     description:
-      "Elegant glass candle holders suitable for tea lights or pillar candles. Adds a warm glow to dining and living areas.",
+      "Elegant curved standing light made of high-quality materials. Provides a warm and inviting glow, perfect for any room.",
   },
   {
     id: "27",
     name: "Lavender Mist Perfume",
     measurement: "quantity: 100ml",
-    image: image3,
+    image: lavendaPef,
     price: 45,
     category: "perfumes",
     bestseller: false,

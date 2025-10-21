@@ -6,12 +6,13 @@ import { addToCart } from "../reduxSlice/cartslice";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { tr } from "framer-motion/client";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDisplay({ limit }) {
   const product = useSelector((state) => state.product.filteredProducts);
   const searchTerm = useSelector((state) => state.product.searchTerm);
   const products = limit ? product.slice(0, limit) : product;
+  const navigate = useNavigate();
   return (
     <>
       {products.length === 0 && (
@@ -40,6 +41,7 @@ export function ProductCard({ product, style }) {
       viewport={{ once: "true", amount: 0.2 }}
       transition={{ duration: 1, ease: "easeInOut" }}
       tabIndex={0}
+      onClick={() => navigate(`/products/${product.id}`)}
       className={`relative group flex flex-col flex-shrink-0 rounded-2xl bg-[#e2dcd1] ${style}`}
     >
       <div className="w-full pb-3 pt-8 px-2 h-36 md:px-5 md:pt-12 md:pb-5 md:h-60">

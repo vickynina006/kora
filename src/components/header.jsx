@@ -24,11 +24,11 @@ export default function Header({ scrollToProducts }) {
 
   const totalQty = useSelector((state) => state.cart.totalQty);
   const dispatch = useDispatch();
-  // console.log(menuIsOpen);
+
   function toggleMenu() {
     setMenuIsOpen((prev) => !prev);
   }
-  console.log("showDetails:" + showDetails);
+
   function handleChange(e) {
     const value = e.target.value;
     dispatch(setSearchTerm(value));

@@ -37,10 +37,10 @@ export default function Bestsellers() {
       <div className="flex flex-col gap-3 h-auto w-full lg:w-[95%] xl:w-[85%] 2xl:w-[75%] md:h-[550px] lg:h-[720px] md:flex-row ">
         <div className="w-full space-y-3 md:h-full md:w-[45%]">
           <motion.div
-            initial={{ rotateY: 90, opacity: 0 }}
+            initial={{ rotateY: 50, opacity: 0 }}
             whileInView={{ rotateY: 0, opacity: 1 }}
             transition={{ duration: 1.5 }}
-            viewport={{ amount: 1, once: true }}
+            viewport={{ amount: 0.4, once: true }}
             className=" aspect-square w-full md:aspect-auto md:h-[65%]"
           >
             <BestsellerCard image={statue} product={statue1p} />
@@ -58,7 +58,7 @@ export default function Bestsellers() {
           </div>
           <div className="flex space-x-2 aspect-square  grid-cols-2 md:aspect-auto m md:h-[75%]">
             <motion.div
-              initial={{ rotateY: 90, opacity: 0 }}
+              initial={{ rotateY: 50, opacity: 0 }}
               whileInView={{ rotateY: 0, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeIn" }}
               viewport={{ amount: 0.2, once: true }}
@@ -70,16 +70,16 @@ export default function Bestsellers() {
               <motion.div
                 initial={{ x: "20%", opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1 }}
-                viewport={{ amount: 0.4, once: true }}
+                transition={{ duration: 1.2 }}
+                viewport={{ amount: 0.3, once: true }}
               >
                 <BestsellerCard image={cap3} product={top} />
               </motion.div>
               <motion.div
                 initial={{ x: "20%", opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 0.3 }}
-                viewport={{ amount: 0.4, once: true }}
+                transition={{ duration: 1.2, delay: 0.3 }}
+                viewport={{ amount: 0.3, once: true }}
               >
                 <BestsellerCard image={statue1} product={statue2p} />
               </motion.div>
