@@ -23,9 +23,9 @@ export default function Footer() {
             kORA
           </h1>
           <p className="text-md md:pr-5">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nihil
-            aspernatur eveniet porro ipsa ipsam. Accusamus veritatis iusto
-            architecto, earum!
+            Kora fuses luxury, creativity, and design; from captivating scents
+            to effortlessly stylish caps and curated interiors. We exist to
+            redefine modern elegance and inspire a refined way of living.
           </p>
           <ul className="flex gap-4">
             <Icons icon={faXTwitter} />
