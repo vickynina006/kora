@@ -17,7 +17,7 @@ export default function Interiors({ productRef }) {
         title="Interiors"
         description="Explore our collection of stylish interiors. Make your space a reflection of your personality with our unique designs."
         offer={true}
-        bgImage="bg-[url('/herobgint.jpg')]"
+        bgImage="bg-[url('/herobgint.webp')]"
       />
       <section
         ref={productRef}

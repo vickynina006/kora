@@ -17,7 +17,7 @@ export default function Caps({ productRef }) {
         title="Caps Collection"
         description="Explore our collection of stylish caps. quality meets comfort in our diverse range of caps designed for every occasion."
         offer={true}
-        bgImage="bg-[url('/hero-bg.jpg')]"
+        bgImage="bg-[url('/hero-bg.webp')]"
       />
       <section
         ref={productRef}

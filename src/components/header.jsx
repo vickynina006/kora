@@ -58,7 +58,7 @@ export default function Header({ scrollToProducts }) {
     <>
       <div className="w-full fixed top-0 right-0 left-0 z-30">
         <header
-          className={` bg-gray-950/70 px-5 smx:px-10 py-8 backdrop-blur-md flex items-center justify-between transition-all duration-600 lg:px-28 ${
+          className={` bg-gray-950/70 px-3  py-5 backdrop-blur-md flex items-center justify-between transition-all duration-600 smx:px-6 md:py-8 md:px-10 lg:px-28 ${
             isHeaderVisible ? "-translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -70,7 +70,7 @@ export default function Header({ scrollToProducts }) {
             />
           </button>
 
-          <h1 className="font-family-monte text-3xl mx-auto font-bold text-neutral-50 lg:mx-0">
+          <h1 className="font-family-monte text-2xl mx-auto font-bold text-neutral-50 md:text-3xl lg:mx-0">
             kORA
           </h1>
           <nav>

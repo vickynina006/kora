@@ -17,7 +17,7 @@ export default function Perfumes({ productRef }) {
         title="Perfumes"
         description="Explore our collection of luxurious perfumes. dishing out premium quality fragrances for every occasion. get ready to indulge your senses with our exquisite scents."
         offer={true}
-        bgImage="bg-[url('/herobgpef2.jpg')]"
+        bgImage="bg-[url('/herobgpef2.webp')]"
       />
       <section
         ref={productRef}

@@ -6,13 +6,13 @@ export default function Hero({
   button,
   title,
   description,
-  bgImage = "bg-[url('/herobg3.jpg')]",
+  bgImage = "bg-[url('/herobg3.webp')]",
   offer,
 }) {
   const [showDetails, setShowDetails] = useState(false);
   return (
     <section
-      className={`bg-black/35 bg-blend-overlay  ${bgImage} bg-cover bg-no-repeat bg-center`}
+      className={`bg-black/40 bg-blend-overlay  ${bgImage} bg-cover bg-no-repeat bg-center`}
     >
       <div className=" flex flex-col items-center gap-10 w-full  px-6 pt-52 pb-24 overflow-hidden text-white md:px-14  lg:items-start md:pt-60 lg:w-[70%] lg:px-28">
         <div className="overflow-hidden">

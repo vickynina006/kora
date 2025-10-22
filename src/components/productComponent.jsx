@@ -36,7 +36,7 @@ export function ProductCard({ product, style }) {
   const dispatch = useDispatch();
   return (
     <motion.div
-      initial={{ y: 80, scale: 0.7, opacity: 0 }}
+      initial={{ y: 50, scale: 0.9, opacity: 0 }}
       whileInView={{ y: 0, scale: 1, opacity: 1 }}
       viewport={{ once: "true", amount: 0.2 }}
       transition={{ duration: 1, ease: "easeInOut" }}
