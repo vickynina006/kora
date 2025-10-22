@@ -133,7 +133,7 @@ export default function Header({ scrollToProducts }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5"
+              className={`w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5 ${isHeaderVisible ? "opacity-1" : "opacity-0"}`}
             >
               <div className="w-full relative">
                 {" "}
