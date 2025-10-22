@@ -10,6 +10,7 @@ import {
   faMapMarkerAlt,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -32,7 +33,10 @@ export default function Footer() {
             <Icons icon={faWhatsapp} />
             <Icons icon={faTelegram} />
             <Icons icon={faInstagram} />
-            <Icons icon={faEnvelope} />
+            <Icons
+              icon={faEnvelope}
+              href="mailto:darlingtonnwankwo@gmail.com"
+            />
           </ul>
         </div>
         <div className="w-full md:w-[40%]  space-y-5">
@@ -42,10 +46,10 @@ export default function Footer() {
               <a href="">Home</a>
             </li>
             <li className="hover:text-gray-300">
-              <a href="">About</a>
+              <a href="#footer">About</a>
             </li>
             <li className="hover:text-gray-300">
-              <a href="">Services</a>
+              <a href="#productSection">Services</a>
             </li>
             <li className="hover:text-gray-300">
               <a href="">Message us on Whatsapp</a>
@@ -58,16 +62,16 @@ export default function Footer() {
           <h1 className="text-gray-300 ">Shop Now</h1>
           <ul className="space-y-4">
             <li className="hover:text-gray-300">
-              <a href="">Best Sellers</a>
+              <a href="#bestsellers">Best Sellers</a>
             </li>
             <li className="hover:text-gray-300">
-              <a href="">Caps</a>
+              <Link to="/caps">Caps</Link>
             </li>
             <li className="hover:text-gray-300">
-              <a href="">Perfumes</a>
+              <Link to="/perfumes">Perfumes</Link>
             </li>
             <li className="hover:text-gray-300">
-              <a href="">Interiors</a>
+              <Link to="/interiors">Interiors</Link>
             </li>
           </ul>
         </div>
@@ -97,10 +101,10 @@ export default function Footer() {
     </footer>
   );
 }
-export function Icons({ icon }) {
+export function Icons({ icon, href }) {
   return (
     <li>
-      <a href="">
+      <a href={href}>
         <FontAwesomeIcon
           className=" text-lg  cursor-pointer text-gray-100 hover:text-amber-500"
           icon={icon}

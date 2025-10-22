@@ -58,7 +58,7 @@ export default function Header({ scrollToProducts }) {
     <>
       <div className="w-full fixed top-0 right-0 left-0 z-30">
         <header
-          className={` bg-gray-950/70 px-3  py-5 backdrop-blur-md flex items-center justify-between transition-all duration-600 smx:px-6 md:py-8 md:px-10 lg:px-28 ${
+          className={`relative bg-gray-950/70 px-3  py-5 backdrop-blur-md flex items-center justify-between transition-all duration-600 smx:px-6 md:py-8 md:px-10 lg:px-28 ${
             isHeaderVisible ? "-translate-y-0" : "-translate-y-full"
           }`}
         >
@@ -124,42 +124,41 @@ export default function Header({ scrollToProducts }) {
               </span>
             </div>
           </div>
-        </header>
-        {/* mobile nav details */}
-
-        <AnimatePresence>
-          {openSearch && (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5"
-            >
-              <div className="w-full relative">
-                {" "}
-                <input
-                  onChange={handleChange}
-                  onKeyDown={(e) =>
-                    e.key === "Enter" &&
-                    (dispatch(runSearch()), scrollToProducts?.())
-                  }
-                  type="text"
-                  placeholder="Search products..."
-                  className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
-                />
-                <button
-                  onClick={handleSearchClick}
-                  className=" absolute right-2 top-1.5 flex items-center justify-center bg-gray-900 text-white rounded-full p-1.5 md:p-2 "
-                >
-                  <FontAwesomeIcon
-                    className="text-sm cursor-pointer hover:text-gray-300 md:text-xl"
-                    icon={faMagnifyingGlass}
+          {/* mobile nav details */}
+          <AnimatePresence>
+            {openSearch && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="w-full absolute left-0 right-0 top-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5"
+              >
+                <div className="w-full relative">
+                  {" "}
+                  <input
+                    onChange={handleChange}
+                    onKeyDown={(e) =>
+                      e.key === "Enter" &&
+                      (dispatch(runSearch()), scrollToProducts?.())
+                    }
+                    type="text"
+                    placeholder="Search products..."
+                    className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
                   />
-                </button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+                  <button
+                    onClick={handleSearchClick}
+                    className=" absolute right-2 top-1.5 flex items-center justify-center bg-gray-900 text-white rounded-full p-1.5 md:p-2 "
+                  >
+                    <FontAwesomeIcon
+                      className="text-sm cursor-pointer hover:text-gray-300 md:text-xl"
+                      icon={faMagnifyingGlass}
+                    />
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </header>
       </div>
       <NavModal
         showDetails={showDetails}
