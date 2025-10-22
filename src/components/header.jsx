@@ -51,8 +51,6 @@ export default function Header({ scrollToProducts }) {
 
       setIsHeaderVisible(visible);
       setLastScrollY(currentScrollY);
-
-      if (!visible) setOpenSearch(false);
     }
 
     window.addEventListener("scroll", handleHeaderScroll, { passive: true });
