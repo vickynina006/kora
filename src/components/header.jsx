@@ -45,14 +45,20 @@ export default function Header({ scrollToProducts }) {
   }
 
   useEffect(() => {
-    function handleHeaderScroll() {
-      const currentScrollY = window.scrollY;
-      setIsHeaderVisible(currentScrollY < lastScrollY || currentScrollY < 20);
-      setLastScrollY(currentScrollY);
-    }
-    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleHeaderScroll);
-  }, [lastScrollY]);
+  function handleHeaderScroll() {
+    const currentScrollY = window.scrollY;
+    const visible = currentScrollY < lastScrollY || currentScrollY < 20;
+
+    setIsHeaderVisible(visible);
+    setLastScrollY(currentScrollY);
+
+    
+    if (!visible) setOpenSearch(false);
+  }
+
+  window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleHeaderScroll);
+}, [lastScrollY]);
 
   return (
     <>
@@ -124,6 +130,7 @@ export default function Header({ scrollToProducts }) {
               </span>
             </div>
           </div>
+<<<<<<< HEAD
           {/* mobile nav details */}
           <AnimatePresence>
             {openSearch && (
@@ -144,6 +151,38 @@ export default function Header({ scrollToProducts }) {
                     type="text"
                     placeholder="Search products..."
                     className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
+=======
+        </header>
+        {/* mobile nav details */}
+
+        <AnimatePresence>
+          {openSearch && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5 "
+            >
+              <div className="w-full relative">
+                {" "}
+                <input
+                  onChange={handleChange}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" &&
+                    (dispatch(runSearch()), scrollToProducts?.())
+                  }
+                  type="text"
+                  placeholder="Search products..."
+                  className="  w-full border-none outline  outline-gray-400 rounded-full px-4 py-1.5 md:py-3"
+                />
+                <button
+                  onClick={handleSearchClick}
+                  className=" absolute right-2 top-1.5 flex items-center justify-center bg-gray-900 text-white rounded-full p-1.5 md:p-2 "
+                >
+                  <FontAwesomeIcon
+                    className="text-sm cursor-pointer hover:text-gray-300 md:text-xl"
+                    icon={faMagnifyingGlass}
+>>>>>>> 0ffbf6bbb9aa0e30852e034419dea6e7c25e82cc
                   />
                   <button
                     onClick={handleSearchClick}
