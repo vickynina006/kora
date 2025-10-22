@@ -45,14 +45,20 @@ export default function Header({ scrollToProducts }) {
   }
 
   useEffect(() => {
-    function handleHeaderScroll() {
-      const currentScrollY = window.scrollY;
-      setIsHeaderVisible(currentScrollY < lastScrollY || currentScrollY < 20);
-      setLastScrollY(currentScrollY);
-    }
-    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleHeaderScroll);
-  }, [lastScrollY]);
+  function handleHeaderScroll() {
+    const currentScrollY = window.scrollY;
+    const visible = currentScrollY < lastScrollY || currentScrollY < 20;
+
+    setIsHeaderVisible(visible);
+    setLastScrollY(currentScrollY);
+
+    
+    if (!visible) setOpenSearch(false);
+  }
+
+  window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+  return () => window.removeEventListener("scroll", handleHeaderScroll);
+}, [lastScrollY]);
 
   return (
     <>
@@ -133,7 +139,7 @@ export default function Header({ scrollToProducts }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 10 }}
-              className={`w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5 ${isHeaderVisible ? "opacity-1" : "opacity-0"}`}
+              className="w-full px-5 py-3 bg-white shadow-md flex items-center justify-center lg:px-20 md:py-5 "
             >
               <div className="w-full relative">
                 {" "}
