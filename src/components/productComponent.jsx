@@ -93,7 +93,7 @@ export function ProductCard({ product, style }) {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-30 -top-4 right-4  rounded-lg bg-black/20 text-xs text-white px-2 py-1"
+            className="absolute z-30 top-4 right-4  rounded-lg bg-black/20 text-xs text-white px-2 py-1"
           >
             ✅ Added to Cart!
           </motion.div>
