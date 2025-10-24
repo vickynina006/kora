@@ -11,8 +11,9 @@ import {
   faArrowRight,
   faCartShopping,
 } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import Button from "./button";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 export default function Bestsellers() {
@@ -87,19 +88,18 @@ export default function Bestsellers() {
           </div>
         </div>
       </div>
-
-      {/* <div className="grid grid-cols-2 gap-3 lg:gap-6 w-full lg:w-[70%] ">
-        <BestsellerCard image={statue} product={potrait} />
-        <BestsellerCard image={cap3} product={top} />
-        <BestsellerCard image={statue1} product={bottom} />
-        <BestsellerCard image={perfume} product={landscape} />
-      </div> */}
     </section>
   );
 }
 
 export function BestsellerCard({ product, image }) {
+  const [success, setSuccess] = useState(false);
   const dispatch = useDispatch();
+  function handleAddToCart() {
+    dispatch(addToCart(product));
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 1000);
+  }
   return (
     <div className="relative h-full w-full rounded-xl overflow-hidden ">
       <motion.img
@@ -121,7 +121,7 @@ export function BestsellerCard({ product, image }) {
       </span>
       <button className="right-2 top-1  cursor-pointer outline-1 outline-gray-600/40 bg-gray-950/15 backdrop-blur-[1.5px] rounded-full absolute md:right-3 md:top-1.5 p-1 ">
         <FontAwesomeIcon
-          onClick={() => dispatch(addToCart(product))}
+          onClick={handleAddToCart}
           className=" text-md text-gray-50 hover:text-amber-400  "
           icon={faCartShopping}
         />
@@ -138,6 +138,19 @@ export function BestsellerCard({ product, image }) {
           </Button>
         </Link>
       </span>
+      <AnimatePresence>
+        {success && (
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-9 right-4 z-20 rounded-lg bg-black/20 text-xs text-white px-2 py-1"
+          >
+            ✅ Added to Cart!
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

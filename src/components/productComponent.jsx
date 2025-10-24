@@ -5,14 +5,16 @@ import { addToCart } from "../reduxSlice/cartSlice";
 // import Button from "./button";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
 
 export default function ProductDisplay({ limit }) {
   const product = useSelector((state) => state.product.filteredProducts);
   const searchTerm = useSelector((state) => state.product.searchTerm);
   const products = limit ? product.slice(0, limit) : product;
-  const navigate = useNavigate();
+
+  // const navigate = useNavigate();
   return (
     <>
       {products.length === 0 && (
@@ -33,7 +35,14 @@ export default function ProductDisplay({ limit }) {
 }
 
 export function ProductCard({ product, style }) {
+  const [success, setSuccess] = useState(false);
   const dispatch = useDispatch();
+  function handleAddToCart() {
+    dispatch(addToCart(product));
+    setSuccess(true);
+    setTimeout(() => setSuccess(false), 1000);
+  }
+
   return (
     <motion.div
       initial={{ y: 50, scale: 0.9, opacity: 0 }}
@@ -57,7 +66,7 @@ export function ProductCard({ product, style }) {
           <p>${product.price}</p>
           <button className="flex justify-end rounded-full  bg-white p-2">
             <FontAwesomeIcon
-              onClick={() => dispatch(addToCart(product))}
+              onClick={handleAddToCart}
               className="z-10 text-md text-gray-800 cursor-pointer hover:text-amber-600"
               icon={faCartShopping}
             />
@@ -77,6 +86,19 @@ export function ProductCard({ product, style }) {
           <h1 className="text-sm md:text-md">Top Seller</h1>
         </div>
       )}
+      <AnimatePresence>
+        {success && (
+          <motion.div
+            initial={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute z-30 -top-4 right-4  rounded-lg bg-black/20 text-xs text-white px-2 py-1"
+          >
+            ✅ Added to Cart!
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }

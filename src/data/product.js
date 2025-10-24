@@ -32,7 +32,7 @@ const products = [
     name: "Floor Lamp Led Sculpture",
     measurement: "Height: 5ft, Base Diameter: 10in",
     image: standingLight,
-    price: 15,
+    price: 60,
     category: "interiors",
     bestseller: true,
     description:
@@ -54,7 +54,7 @@ const products = [
     id: "3",
     name: "Black Leather Cap",
     image: blackleatherCap,
-    price: 45,
+    price: 35,
     category: "caps",
     bestseller: true,
     description:
@@ -66,7 +66,7 @@ const products = [
     name: "Wine Denim Cap",
     measurement: "One size fits all (adjustable)",
     image: wineCap,
-    price: 55,
+    price: 40,
     category: "caps",
     bestseller: true,
     description:
@@ -120,7 +120,7 @@ const products = [
     name: "Wooden Wall Clock",
     measurement: "Diameter: 12in, Depth: 2in",
     image: woodenClock,
-    price: 35,
+    price: 30,
     category: "interiors",
     bestseller: false,
     description:
@@ -131,7 +131,7 @@ const products = [
     name: "Home Decor Abstract",
     measurement: "12in x 12in",
     image: abstract,
-    price: 15,
+    price: 65,
     category: "interiors",
     bestseller: true,
     description:
@@ -142,7 +142,7 @@ const products = [
     name: "Grey Throw Pillow",
     measurement: "18in x 18in",
     image: pillow,
-    price: 20,
+    price: 10,
     category: "interiors",
     bestseller: false,
     description:
@@ -152,7 +152,7 @@ const products = [
     id: "12",
     name: "Red Street Cap",
     image: redCap,
-    price: 14,
+    price: 23,
     category: "caps",
     bestseller: false,
     description:
@@ -163,7 +163,7 @@ const products = [
     name: "Blue Denim Cap",
     measurement: "One size fits all (adjustable)",
     image: denimCap,
-    price: 18,
+    price: 30,
     category: "caps",
     bestseller: false,
     description:
@@ -196,7 +196,7 @@ const products = [
     name: "Ceramic Vase Set",
     measurement: "Height: 5ft, Base Diameter: 10in",
     image: jar,
-    price: 30,
+    price: 110,
     category: "interiors",
     bestseller: false,
     description:
@@ -240,7 +240,7 @@ const products = [
     name: "Mesh Back Trucker Cap",
     measurement: "One size fits all (adjustable)",
     image: brownCap,
-    price: 16,
+    price: 18,
     category: "caps",
     bestseller: false,
     description:
@@ -273,7 +273,7 @@ const products = [
     name: "Yellow Summer Cap",
     measurement: "One size fits all (adjustable)",
     image: yellowCap,
-    price: 15,
+    price: 18,
     category: "caps",
     bestseller: false,
     description:
@@ -306,7 +306,7 @@ const products = [
     name: "Curved Standing Light ",
     measurement: "Height: 4in, Diameter: 3in",
     image: curvedStandingLight,
-    price: 25,
+    price: 65,
     category: "interiors",
     bestseller: false,
     description:
