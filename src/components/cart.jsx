@@ -144,7 +144,7 @@ export default function Cart() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -50, opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="absolute top-0 right-0 left-0 px-5 py-4 flex items-center justify-center z-50"
+                  className="fixed top-0 right-0  px-5 py-4 w-full  flex items-center justify-center z-50 md:w-1/2 lg:w-1/3"
                 >
                   <div className="bg-red-600 rounded-lg p-5 w-full text-center shadow-lg">
                     <h1 className="text-white font-bold text-md ">
